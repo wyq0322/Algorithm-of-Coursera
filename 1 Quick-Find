@@ -1,5 +1,9 @@
 // Java implementation
- 
+// Data Structrue: Interger array id[] of length N
+//                 Interpretation: p and q are connected iff they have the same id
+// Find: Check if p and q have the same id.
+// Union: To merge components containing p and q, change all entries whose id equals id[p] to id[q]
+
 public class QuickFindUF
 {
   private int[] id; //create an int array
@@ -38,3 +42,6 @@ public class QuickFindUF
 // initialize: N
 // union: N
 // find: 1
+
+// defect: trees are flat, but too expensive to keep them flat.
+//         Union too expensive (It takes N 2 array accesses to process a sequence of N union commands on N objects.).
