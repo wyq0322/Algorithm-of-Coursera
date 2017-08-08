@@ -33,3 +33,8 @@ public class QuickFindUF
     if(id[i] == pip) id[i] = qid;
   }
 }
+
+
+// initialize: N
+// union: N
+// find: 1
