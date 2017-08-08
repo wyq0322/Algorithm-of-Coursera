@@ -1,0 +1,37 @@
+// Weight Quick-Union
+// Modify quick-union to avoid tall trees.
+// Keep track of size of each tree (number of objects).
+// Balance by linking root of smaller tree to root of larger tree
+
+// Data Structrue: Interger array id[] of length N, and an extra array sz[i] to count number of objects in the tree rooted at i
+//                 Interpretation: id[i] is parent of i
+//                 Root of i is id[id[id[...id[]...]]]
+// Find: iff p and q have the same root
+// Union: link root of smaller tree to root of larger tree 
+//        update the sz[] array
+
+//        int i = root(p);
+//        int j = root(q);
+//        if (i == j) return;
+//        if (sz[i] < sz[j]) { id[i] = j; sz[j] += sz[i]; }
+//        else { id[j] = i; sz[i] += sz[j]; }
+
+// lg = base-2 logarithm
+// initialize: N
+// union: lgN +
+// find: lgN
+
+
+// Path Compression
+// Quick union with path compression: Just after computing the root of p, set the id of each examined node to point to that root.
+// Make every other node in path point to its grandparent (thereby halving path length)
+
+private int root(int i)
+{
+ while (i != id[i])
+ {
+  id[i] = id[id[i]];  // only one extra line of code 
+  i = id[i];
+ }
+ return i;
+}
