@@ -1,0 +1,53 @@
+// Java implementation
+// Data Structrue: Interger array id[] of length N
+//                 Interpretation: id[i] is parent of i
+//                 Root of i is id[id[id[...id[]...]]]
+// Find: iff p and q have the same root
+// Union: to merge commponents containing p and q, set the id of p's root to the id of q's root
+
+public class QuickUnionUF
+{
+ private int[] id;
+ 
+ // set id of each object to itself 
+ // (N array accesses)
+ public QuickUnionUF(int N)
+ {
+  id = new int[N];
+  for(int i = 0; i < N; i++)
+    id[i] = i;
+ }
+ 
+ // chase parent pointers until reach root
+ // (depth of i array accesses)
+ private int root(int i)
+ {
+  while(i != id[i])
+   i = id[i];
+  return i;
+ }
+ 
+ // check if p and q have same root
+ // (depth of p and q array accesses)
+ public boolean connected(int p, int q)
+ {
+  return root(p) == root(q);
+ }
+ 
+ // change root of p to point to root of q
+ // (depth of p and q array accesses)
+ public union(int p, int q)
+ {
+   int i = root[p];
+   int j = root[q];
+   id[i] = j;
+ }
+ 
+}
+
+// initialize: N
+// union: N + includes cost of finding costs
+// find: N
+
+// defect: trees can get tall.
+//         Find too expensive (could be N array accesses)
