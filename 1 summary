@@ -1,0 +1,10 @@
+For M union-find operations on a set of N objects
+ex: 10^9 unions and finds with 10^9 objects
+
+algorithm                              |    worst-case time
+---------------------------------------|----------------------
+quick-find                             |       M N
+quick-union                            |       M N
+weighted QU (WPQ)                      |       N + MlogN
+QU + path compression (PC)             |       N + MlogN
+weighted QU + path compression(WQUPC)  |       N + MlogN
